@@ -42,6 +42,24 @@ src/
 - Provide unit tests for critical components.
 - Ensure the UI is accessible and responsive.
 
+## Global Standards
+
+### Security Standards
+- Use `.env` files for secrets and never check them into source control.
+- Recommend dependency scanning (e.g., `npm audit`, `pip-audit`).
+- Define secure CORS policies.
+- Enforce HTTPS and secure headers (via Helmet for React, FastAPI middleware, or a PostgREST proxy).
+
+### Logging Specifications
+- Use structured logging (e.g., JSON logs).
+- Define log levels (`DEBUG`, `INFO`, `WARN`, `ERROR`).
+- Provide centralized logging support (e.g., integrate with Fluentd, Loki, or the ELK stack).
+
+### Error Handling
+- Define a uniform error schema: `{"error_code": "...", "message": "...", "details": {...}}`.
+- Provide sample responses for common failure scenarios.
+- Include retry/backoff logic where appropriate.
+
 ## Customization Notes
 - Replace placeholder API endpoints above with your actual routes.
 - Extend the directory structure section if additional folders are added.
