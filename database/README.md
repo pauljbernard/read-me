@@ -11,7 +11,7 @@ A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]'
 ## Getting Started
 1. Install PostgreSQL and `psql` CLI.
 2. Create a root user and a database for a `[Project Name]`.
-3. Enable following extensions
+3. Enable the following extensions
     - pg_stat_statements	//Tracks execution statistics of all SQL statements. Crucial for performance tuning.
     - auto_explain	        //Automatically logs slow or costly queries with their execution plans.   
     - uuid-ossp	            //Functions to generate UUIDs (uuid_generate_v4() is widely used).
@@ -21,22 +21,22 @@ A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]'
     - btree_gin	            //Enables B-tree style indexing for GIN, improving composite indexing.
     - pg_trgm	            //Trigram similarity indexing, useful for fuzzy search.
     - citext                //text, but with case-insensitive
-4. Database has mandatory log table for storing error logs and other logs of interest
-5. Database has mandatory partition master table for storing table partition logic
+4. Database has a mandatory log table for storing error logs and other logs of interest
+5. Database has a mandatory partition master table for storing table partition logic
 6. Database has A role-based access control system
-6. Place initialization scripts in `ddl/` and run them via '[DB Migration Tool]'.
+6. Place initialisation scripts in `ddl/` and run them via '[DB Migration Tool]'.
 
 ## Schema Design
-- Normalized table design following third normal form (3NF)
+- Normalised table design following the third normal form (3NF)
 - Consistent naming conventions using `snake_case` lower case
-- Place business logic into public schema, archive schema will be used for archiving
-- Every table, column, relationship, view, function, stored procedure must be commented
+- Place business logic into the public schema, the archive schema will be used for archiving
+- Every table, column, relationship, view, function, and stored procedure must be commented
 - Use of CHECK constraints to enforce business rules (e.g., `status IN ('A', 'I')`).
-- Every foreign key column has index on it
+- Every foreign key column has an index on it
 - Foreign key constraints with `ON DELETE`/`ON UPDATE` rules
 
 ### Naming conventions
-- Table name is always plural
+- The table name is always plural
 - View has vw_ prefix
 - Function has fn_ prefix
 - Stored procedure has spc_ prefix
@@ -51,7 +51,7 @@ A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]'
   - `created_at`, `updated_at` (timestamps)
   - `status` (e.g., 'A' = Active, 'I' = Inactive)
   - `metadata` (jsonb, extensible for unstructured info)
-- for text columns like name, address line, prefer to use case-insensitive types
+- For text columns like name, address line, prefer to use case-insensitive types
 
 ## Documentation
 Document key tables, relationships, and naming conventions here as your design evolves.
@@ -75,18 +75,19 @@ database/
 
 ### Security Standards
 - Store database credentials in environment variables, not source control.
-- Apply least-privilege principle for database roles.
+- Apply the least-privilege principle for database roles.
 - Use SSL connections for all client connections.
 
 ### Logging Specifications
 - Enable slow query logging for performance diagnostics.
-- Centralize logs for analysis (e.g., use `pgAudit`).
+- Centralise logs for analysis (e.g., use `pgAudit`).
 - Enable `log_min_duration_statement = 1000ms` to catch slow queries.
 
 ### Error Handling
 - Use transactional migrations so failures roll back safely.
 - Document common error codes and how the '[Framework Name]' service should respond.
 
-## Customization Notes
+### Customisation Notes
 - Adapt the directory layout if your project requires additional scripts.
 - Extend the features list with domain-specific guidelines.
+- Add '[Framework Name]' specific guidelines.
