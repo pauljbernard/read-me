@@ -78,6 +78,7 @@ database/
 ### Logging Specifications
 - Enable slow query logging for performance diagnostics.
 - Centralize logs for analysis (e.g., use `pgAudit`).
+- Enable `log_min_duration_statement = 1000ms` to catch slow queries.
 
 ### Error Handling
 - Use transactional migrations so failures roll back safely.
