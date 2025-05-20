@@ -48,7 +48,7 @@ A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]'
 - `uuid` primary keys with `gen_random_uuid()`
 - `partition_uuid` foreign key on partition master
 - default timestamp fields `created_at` and `updated_at`, status (varchar 2), metadata (jsonb)
-- 
+- for text columns like name, address line, prefer to use case-insensitive types
 
 ## Documentation
 Document key tables, relationships, and naming conventions here as your design evolves.
