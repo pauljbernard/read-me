@@ -56,6 +56,7 @@ Document key tables, relationships, and naming conventions here as your design e
 database/
 ├── ddl/        # `[DB Migration Tool]`
 ├── seed/       # Optional seed data
+├── report/     # html report
 └── README.md
 ```
 
