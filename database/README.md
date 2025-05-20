@@ -31,7 +31,7 @@ A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]'
 - Consistent naming conventions using `snake_case` lower case
 - Place business logic into public schema, archive schema will be used for archiving
 - Every table, column, relationship, view, function, stored procedure must be commented
-- Use of `CHECK` constraints for business rules
+- Use of CHECK constraints to enforce business rules (e.g., `status IN ('A', 'I')`).
 - Every foreign key column has index on it
 - Foreign key constraints with `ON DELETE`/`ON UPDATE` rules
 
@@ -45,9 +45,12 @@ A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]'
 - Foreign key column name format is 'parent table name (singular)' + uuid
 
 ### Table Design
-- `uuid` primary keys with `gen_random_uuid()`
-- `partition_uuid` foreign key on partition master
-- default timestamp fields `created_at` and `updated_at`, status (varchar 2), metadata (jsonb)
+- Standard columns in each table:
+  - `uuid` (Primary key) with `gen_random_uuid()`
+  - `partition_uuid` (FK)
+  - `created_at`, `updated_at` (timestamps)
+  - `status` (e.g., 'A' = Active, 'I' = Inactive)
+  - `metadata` (jsonb, extensible for unstructured info)
 - for text columns like name, address line, prefer to use case-insensitive types
 
 ## Documentation
