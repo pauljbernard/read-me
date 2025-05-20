@@ -1,7 +1,7 @@
 # PostgreSQL Database
 
 ## Purpose
-A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]' microservice.
+A PostgreSQL Database for '[Project Name]' intended to back a '[Framework Name]' microservice with RBAC, audit logging, partitioning, and advanced extensions.
  - Replace `[Project Name]` with the name of your application throughout this file. 
  - Replace `[DB Migration Tool]` with the name of your db migration tool throughout this file.
  - Replace `[Framework Name]` with the name of your framework throughout this file.
